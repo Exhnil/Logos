@@ -1,0 +1,2 @@
+PROJECT_NAME="Logos"
+VERSION="0.1.0"
