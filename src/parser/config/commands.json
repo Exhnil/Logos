@@ -1,0 +1,110 @@
+[
+  {
+    "action": "stop",
+    "target": null,
+    "keywords": {
+      "fr": ["stop", "pause", "arrête"],
+      "en": ["stop", "pause"],
+      "ja": ["止めて", "ストップ", "やめて"]
+    }
+  },
+  {
+    "action": "open",
+    "target": "browser",
+    "keywords": {
+      "fr": ["ouvre", "lance"],
+      "en": ["open", "launch"],
+      "ja": ["開いて", "起動して"]
+    },
+    "patterns": {
+      "en": ["open (.+)", "launch (.+)"],
+      "fr": ["ouvre (.+)", "lance (.+)"],
+      "ja": ["(.+)を開いて", "(.+)を起動して"]
+    },
+    "param_name": "app"
+  },
+  {
+    "action": "play",
+    "target": "music",
+    "keywords": {
+      "fr": ["joue", "mets"],
+      "en": ["play", "put on", "start"],
+      "ja": ["再生して"]
+    },
+    "patterns": {
+      "fr": ["joue (.+)", "mets (.+)"],
+      "en": ["play (.+)", "put on (.+)", "start (.+)"],
+      "ja": ["(.+)を再生して"]
+    },
+    "param_name": "track"
+  },
+  {
+    "action": "get_weather",
+    "target": "weather",
+    "keywords": {
+      "fr": ["météo", "quel temps"],
+      "en": ["weather", "forecast"],
+      "ja": ["天気", "天気予報"]
+    },
+    "patterns": {
+      "fr": ["météo à (.+)"],
+      "en": ["weather in (.+)", "forecast for (.+)"],
+      "ja": ["(.+)の天気"]
+    },
+    "param_name": "location"
+  },
+  {
+    "action": "set",
+    "target": "alarm",
+    "patterns": {
+      "fr": [
+        "réveille-moi à (\\d{1,2}:\\d{2})",
+        "mets une alarme à (\\d{1,2}:\\d{2})"
+      ],
+      "en": [
+        "set alarm at (\\d{1,2}:\\d{2})",
+        "wake me up at (\\d{1,2}:\\d{2})"
+      ],
+      "ja": ["(\\d{1,2}:\\d{2})にアラームを設定"]
+    },
+    "param_name": "time"
+  },
+  {
+    "action": "set",
+    "target": "timer",
+    "patterns": {
+      "fr": ["minuteur (\\d+) minutes"],
+      "en": ["set timer for (\\d+) minutes"],
+      "ja": ["(\\d+)分のタイマー"]
+    },
+    "param_name": "duration"
+  },
+  {
+    "action": "search",
+    "target": null,
+    "patterns": {
+      "fr": ["cherche (.+)", "recherche (.+)"],
+      "en": ["search for (.+)", "look up (.+)"],
+      "ja": ["(.+)を調べて", "(.+)を検索"]
+    },
+    "param_name": "query"
+  },
+  {
+    "action": "volume_up",
+    "target": null,
+    "keywords": {
+      "fr": ["monte le son", "plus fort"],
+      "en": ["volume up", "increase volume"],
+      "ja": ["音量を上げて"]
+    }
+  },
+  {
+    "action": "volume_down",
+    "target": null,
+    "keywords": {
+      "fr": ["baisse le son", "moins fort"],
+      "en": ["volume down", "decrease volume"],
+      "ja": ["音量を下げて"]
+    }
+  }
+]

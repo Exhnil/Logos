@@ -1,6 +1,6 @@
 {
-  "model": "base",
-  "duration": 10,
+  "model": "small",
+  "duration": 5,
   "channels": 1,
   "subtype": "PCM_16",
   "language": "en"

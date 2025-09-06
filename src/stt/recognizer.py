@@ -1,3 +1,5 @@
+from typing import Any
+import torch
 import whisper
 import sounddevice as sd
 import soundfile as sf
@@ -5,19 +7,22 @@ import numpy as np
 import json
 from scipy.signal import butter, lfilter
 import logging
+from pathlib import Path
 
-with open("src/stt/config.json","r") as f:
-    CONFIG= json.load(f)
+config_path = Path(__file__).parent.parent / "stt" / "config" / "config.json"
+with open(config_path, "r", encoding="utf-8") as f:
+    CONFIG = json.load(f)
 
 logger = logging.getLogger("LogosSTT")
 
 logger.info(f"Loading Whisper model: {CONFIG['model']}")
-model = whisper.load_model(CONFIG["model"])
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = whisper.load_model(CONFIG["model"]).to(device)
 
 filename = f"rec_{CONFIG['duration']}.wav"
-device_info = sd.query_devices(sd.default.device[0])
+device_info: dict[str, Any] = sd.query_devices(sd.default.device[0])
 CONFIG["samplerate"] = int(device_info["default_samplerate"])
-logger.info(f"Samplerate: {CONFIG["samplerate"]} Hz, device: {device_info["name"]}")
+logger.info(f"Samplerate: {CONFIG['samplerate']} Hz, device: {device_info['name']}")
 
 
 def highpass_filter(audio, samplerate, cutoff=80, order=5):
@@ -51,8 +56,10 @@ def record_stream():
 
     logger.info("Listening...")
 
-    with sd.InputStream(samplerate=CONFIG["samplerate"], channels=CONFIG["channels"], callback=callback):
-        sd.sleep(int(CONFIG["duration"]*1000))
+    with sd.InputStream(
+        samplerate=CONFIG["samplerate"], channels=CONFIG["channels"], callback=callback
+    ):
+        sd.sleep(int(CONFIG["duration"] * 1000))
 
     logger.info("Recording done")
 

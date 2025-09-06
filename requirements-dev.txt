@@ -1,8 +1,5 @@
 pytest
-pyaudio
-speechrecognition
 openai-whisper
-torch
 sounddevice
 soundfile
 scipy
