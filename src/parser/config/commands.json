@@ -11,11 +11,6 @@
   {
     "action": "open",
     "target": "browser",
-    "keywords": {
-      "fr": ["ouvre", "lance"],
-      "en": ["open", "launch"],
-      "ja": ["開いて", "起動して"]
-    },
     "patterns": {
       "en": ["open (.+)", "launch (.+)"],
       "fr": ["ouvre (.+)", "lance (.+)"],
@@ -26,11 +21,6 @@
   {
     "action": "play",
     "target": "music",
-    "keywords": {
-      "fr": ["joue", "mets"],
-      "en": ["play", "put on", "start"],
-      "ja": ["再生して"]
-    },
     "patterns": {
       "fr": ["joue (.+)", "mets (.+)"],
       "en": ["play (.+)", "put on (.+)", "start (.+)"],
@@ -41,11 +31,6 @@
   {
     "action": "get_weather",
     "target": "weather",
-    "keywords": {
-      "fr": ["météo", "quel temps"],
-      "en": ["weather", "forecast"],
-      "ja": ["天気", "天気予報"]
-    },
     "patterns": {
       "fr": ["météo à (.+)"],
       "en": ["weather in (.+)", "forecast for (.+)"],

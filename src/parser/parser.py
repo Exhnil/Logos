@@ -1,6 +1,6 @@
 import logging
 from typing import Optional, Dict, List
-from parser.layers.rules import RulesLayer
+from parser.layers.regex_parser import RegexLayer
 from parser.layers.interpreter import NLPLayer
 from parser.layers.llm import LLMLayer
 
@@ -9,7 +9,7 @@ logger = logging.getLogger("LogosParser")
 class ParserPipeline:
     def __init__(self, language: str, layers: Optional[List] = None):
         self.layers = layers or [
-            RulesLayer(language),
+            RegexLayer(language),
             NLPLayer(),
             LLMLayer()
         ]

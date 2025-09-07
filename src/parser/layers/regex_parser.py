@@ -7,9 +7,9 @@ from pathlib import Path
 logger = logging.getLogger("LogosRules")
 
 
-class RulesLayer:
+class RegexLayer:
     def __init__(self, language: str = "en"):
-        self.commands = self.load_commands()
+        self.commands = self._load_commands()
         self.language = language
 
     def _load_commands(self):
