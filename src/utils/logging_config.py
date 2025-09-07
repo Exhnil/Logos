@@ -8,6 +8,6 @@ def setup_logging(log_file=None, level=logging.DEBUG):
 
     logging.basicConfig(
         level=level,
-        format="%(asctime)s [%(levelname)s] %(message)s",
+        format="%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d %(message)s",
         handlers=handlers
     )

@@ -16,7 +16,6 @@ def main():
     try:
         text = listen()
         command = parser.parse(text)
-        print(command)
         executor.execute(command)
 
     except KeyboardInterrupt:

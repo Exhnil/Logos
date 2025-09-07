@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+import string
 from typing import Optional, Dict
 from pathlib import Path
 
@@ -23,12 +24,17 @@ class RegexLayer:
         else:
             raise ValueError("Language not supported : {lang}")
 
+    def normalize_text(self, text: str) -> str:
+        text = text.lower()
+        text = text.translate(str.maketrans("", "", string.punctuation))
+        return text.strip()
+
     def parse(self, text: str) -> Optional[Dict]:
         logger.info(f"Language : {self.language}")
         logger.info("Starting rules parsing process")
 
-        text = text.lower().strip()
-        print(text)
+        text = self.normalize_text(text)
+        logger.info(text)
 
         for cmd in self.commands:
             action = cmd.get("action")
@@ -36,7 +42,6 @@ class RegexLayer:
             param_name = cmd.get("param_name")
 
             keywords = cmd.get("keywords", {}).get(self.language, [])
-            print(keywords)
 
             for kw in keywords:
                 if kw.lower() in text:
@@ -58,5 +63,5 @@ class RegexLayer:
                         "param_name": param_name,
                         "param": param,
                     }
-                
+
         return None
