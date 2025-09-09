@@ -1,4 +1,4 @@
-from src.executor.commands import Executor
+from src.executor.actions import Executor
 
 executor = Executor()
 

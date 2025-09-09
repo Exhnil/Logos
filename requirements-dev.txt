@@ -1,6 +1,13 @@
 pytest
-openai-whisper
+
+numpy
+scipy
+
 sounddevice
 soundfile
-scipy
-numpy
+openai-whisper
+
+pyttsx3
+kokoro
+
+torch

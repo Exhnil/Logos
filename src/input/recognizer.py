@@ -9,7 +9,7 @@ from scipy.signal import butter, lfilter
 import logging
 from pathlib import Path
 
-config_path = Path(__file__).parent.parent / "stt" / "config" / "config.json"
+config_path = Path(__file__).parent.parent / "input" / "config" / "config.json"
 with open(config_path, "r", encoding="utf-8") as f:
     CONFIG = json.load(f)
 
